@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/home";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Support from "./pages/Support";
+import CoraSupport from "./pages/CoraSupport";
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/cora-support" element={<CoraSupport />} />
         </Routes>
       </>
     </Suspense>

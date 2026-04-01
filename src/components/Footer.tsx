@@ -89,6 +89,20 @@ export default function Footer() {
             >
               Terms of Service
             </Link>
+            <Link
+              to="/support"
+              className="font-space text-sm transition-colors duration-200 hover:text-[#E8EDF5]"
+              style={{ color: "#6B7A99" }}
+            >
+              Support
+            </Link>
+            <Link
+              to="/cora-support"
+              className="font-space text-sm transition-colors duration-200 hover:text-[#E8EDF5]"
+              style={{ color: "#6B7A99" }}
+            >
+              Cora Support
+            </Link>
           </div>
 
           {/* Social */}
