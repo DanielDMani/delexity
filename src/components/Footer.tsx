@@ -97,6 +97,13 @@ export default function Footer() {
               Support
             </Link>
             <Link
+              to="/cora"
+              className="font-space text-sm transition-colors duration-200 hover:text-[#E8EDF5]"
+              style={{ color: "#6B7A99" }}
+            >
+              Cora App
+            </Link>
+            <Link
               to="/cora-support"
               className="font-space text-sm transition-colors duration-200 hover:text-[#E8EDF5]"
               style={{ color: "#6B7A99" }}

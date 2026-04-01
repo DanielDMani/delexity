@@ -4,6 +4,7 @@ import Home from "./components/home";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Support from "./pages/Support";
 import CoraSupport from "./pages/CoraSupport";
+import CoraMarketing from "./pages/CoraMarketing";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/support" element={<Support />} />
           <Route path="/cora-support" element={<CoraSupport />} />
+          <Route path="/cora" element={<CoraMarketing />} />
         </Routes>
       </>
     </Suspense>
