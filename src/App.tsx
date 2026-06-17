@@ -5,6 +5,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Support from "./pages/Support";
 import CoraSupport from "./pages/CoraSupport";
 import CoraMarketing from "./pages/CoraMarketing";
+import CoraDownload from "./pages/CoraDownload";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/cora-support" element={<CoraSupport />} />
           <Route path="/cora" element={<CoraMarketing />} />
+          <Route path="/download" element={<CoraDownload />} />
         </Routes>
       </>
     </Suspense>

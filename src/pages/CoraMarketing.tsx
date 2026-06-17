@@ -619,7 +619,7 @@ export default function CoraMarketing() {
 
           {/* App Store button */}
           <a
-            href="https://apps.apple.com"
+            href="https://apps.apple.com/gb/app/cora-daily-habit-tracker/id6759983237"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-space font-semibold transition-all duration-200 hover:scale-105 hover:shadow-2xl"
