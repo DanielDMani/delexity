@@ -67,7 +67,7 @@ export default function CoraDownload() {
           className="font-extrabold mb-2"
           style={{ fontSize: "1.05rem", color: "#FBE6D2" }}
         >
-          ADHD Planner, Routines &amp; Focus
+          ADHD Planner, Habits and Routines
         </p>
         <p
           className="mb-7 leading-relaxed font-semibold max-w-sm"
