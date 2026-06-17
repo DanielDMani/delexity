@@ -17,7 +17,7 @@ function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/cora-support" element={<CoraSupport />} />
           <Route path="/cora" element={<CoraMarketing />} />
-          <Route path="/download" element={<CoraDownload />} />
+          <Route path="/cora-habit-tracker" element={<CoraDownload />} />
         </Routes>
       </>
     </Suspense>
