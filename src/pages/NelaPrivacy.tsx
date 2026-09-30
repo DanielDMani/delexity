@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CONTACT_EMAIL } from "@/components/nela/theme";
+import { nela, CONTACT_EMAIL } from "@/components/nela/theme";
 
 // Fixed, not computed — the date only changes when the policy does.
 const LAST_UPDATED = "30 September 2026";
@@ -118,19 +118,26 @@ export default function NelaPrivacy() {
   }, []);
 
   return (
-    <div style={{ background: "#FFFFFF", color: "#000000", minHeight: "100vh" }}>
+    <div
+      style={{
+        background: nela.card,
+        color: nela.muted,
+        minHeight: "100vh",
+        borderTop: `6px solid ${nela.terracotta}`,
+      }}
+    >
       <main
         className="max-w-2xl mx-auto px-4 py-10"
         style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: 14, lineHeight: 1.6 }}
       >
-        <h1 style={{ fontSize: 20, fontWeight: "bold", marginBottom: 4 }}>
+        <h1 style={{ fontSize: 20, fontWeight: "bold", marginBottom: 4, color: nela.ink }}>
           Nela Privacy Policy
         </h1>
         <p style={{ marginBottom: 24 }}>Last updated: {LAST_UPDATED}</p>
 
         {sections.map((section) => (
           <div key={section.title} style={{ marginBottom: 20 }}>
-            <h2 style={{ fontSize: 14, fontWeight: "bold", marginBottom: 6 }}>
+            <h2 style={{ fontSize: 14, fontWeight: "bold", marginBottom: 6, color: nela.accent }}>
               {section.title}
             </h2>
             {section.content.split("\n\n").map((para, i) => (
@@ -142,17 +149,17 @@ export default function NelaPrivacy() {
         ))}
 
         <div style={{ marginBottom: 20 }}>
-          <h2 style={{ fontSize: 14, fontWeight: "bold", marginBottom: 6 }}>
+          <h2 style={{ fontSize: 14, fontWeight: "bold", marginBottom: 6, color: nela.accent }}>
             16. Contact
           </h2>
           <p style={{ marginBottom: 8 }}>
             Questions about this policy, or requests to exercise your rights,
             can be sent to Delexity Ltd at{" "}
-            <a href={`mailto:${CONTACT_EMAIL}`} style={{ textDecoration: "underline" }}>
+            <a href={`mailto:${CONTACT_EMAIL}`} style={{ textDecoration: "underline", color: nela.accent }}>
               {CONTACT_EMAIL}
             </a>
             . See also{" "}
-            <Link to="/nela-support" style={{ textDecoration: "underline" }}>
+            <Link to="/nela-support" style={{ textDecoration: "underline", color: nela.accent }}>
               Nela Support
             </Link>
             .
