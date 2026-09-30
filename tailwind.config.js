@@ -18,6 +18,8 @@ module.exports = {
   	},
   	extend: {
       fontFamily: {
+        display: ['Playfair Display', 'Georgia', 'serif'],
+        body: ['DM Sans', 'sans-serif'],
         syne: ['Syne', 'sans-serif'],
         space: ['Space Grotesk', 'sans-serif'],
         'mono-jet': ['JetBrains Mono', 'monospace'],

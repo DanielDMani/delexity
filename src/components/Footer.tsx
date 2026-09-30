@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import { Twitter, Github, Linkedin } from "lucide-react";
 
 const footerLinks = [
-  { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 

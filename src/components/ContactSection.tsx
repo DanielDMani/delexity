@@ -83,7 +83,7 @@ export default function ContactSection() {
               className="font-mono-jet text-xs mb-4 block"
               style={{ color: "#3ECFCF" }}
             >
-              06 — CONTACT
+              04 — CONTACT
             </span>
             <h2
               className="font-syne font-bold text-4xl md:text-6xl leading-tight mb-6"

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -182,4 +182,48 @@
   background: linear-gradient(135deg, #0A0D14 0%, #0d1426 25%, #12082a 50%, #0A0D14 75%, #091420 100%);
   background-size: 400% 400%;
   animation: mesh-shift 12s ease infinite;
+}
+/* ─────────────────────────────────────────────────────────────
+   Cora — warm blush theme, matched to the iOS app
+   ───────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .cora-card {
+    background: #FFF8F5;
+    border: 1px solid rgba(51, 23, 35, 0.06);
+    box-shadow: 0 2px 10px rgba(51, 23, 35, 0.04);
+  }
+  .cora-label {
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+}
+
+@keyframes cora-blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(28px, -34px) scale(1.07); }
+  66% { transform: translate(-22px, 22px) scale(0.95); }
+}
+
+@keyframes cora-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.cora-blob {
+  animation: cora-blob 20s ease-in-out infinite;
+}
+
+.cora-float {
+  animation: cora-float 6.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cora-blob, .cora-float { animation: none; }
 }

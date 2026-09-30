@@ -61,7 +61,7 @@ export default function HowWeWorkSection() {
               className="font-mono-jet text-xs mb-4 block"
               style={{ color: "#3ECFCF" }}
             >
-              02 — PROCESS
+              01 — PROCESS
             </span>
             <h2
               className="font-syne font-bold text-4xl md:text-5xl leading-tight mb-6"

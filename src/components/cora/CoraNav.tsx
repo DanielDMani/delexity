@@ -1,0 +1,128 @@
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import Wordmark from "./Wordmark";
+import { cora, APP_STORE_URL } from "./theme";
+
+const links = [
+  { label: "Features", id: "features" },
+  { label: "Screens", id: "screens" },
+  { label: "Challenges", id: "challenges" },
+  { label: "How it works", id: "how" },
+  { label: "Say hello", id: "feedback" },
+];
+
+const scrollTo = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  window.scrollTo({
+    top: el.getBoundingClientRect().top + window.scrollY - 76,
+    behavior: "smooth",
+  });
+};
+
+export default function CoraNav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const go = (id: string) => {
+    setOpen(false);
+    scrollTo(id);
+  };
+
+  return (
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled ? "rgba(255,241,233,0.88)" : "transparent",
+        backdropFilter: scrolled ? "blur(16px)" : "none",
+        borderBottom: scrolled
+          ? `1px solid ${cora.ink}12`
+          : "1px solid transparent",
+      }}
+    >
+      <nav className="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Cora — back to top"
+        >
+          <Wordmark size={38} />
+        </button>
+
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => go(link.id)}
+              className="font-body text-sm font-medium transition-colors duration-200"
+              style={{ color: cora.muted }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = cora.pink)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = cora.muted)}
+            >
+              {link.label}
+            </button>
+          ))}
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body text-sm font-semibold px-5 py-2.5 rounded-full transition-transform duration-200 hover:scale-105"
+            style={{
+              background: cora.gradient,
+              color: "#fff",
+              boxShadow: `0 6px 18px ${cora.pink}3D`,
+            }}
+          >
+            Get Cora Free
+          </a>
+        </div>
+
+        <button
+          className="md:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          style={{ color: cora.ink }}
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </nav>
+
+      {open && (
+        <div
+          className="md:hidden px-6 pb-6 pt-2 flex flex-col gap-4"
+          style={{
+            background: "rgba(255,241,233,0.97)",
+            backdropFilter: "blur(16px)",
+            borderBottom: `1px solid ${cora.ink}12`,
+          }}
+        >
+          {links.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => go(link.id)}
+              className="font-body text-base font-medium text-left"
+              style={{ color: cora.muted }}
+            >
+              {link.label}
+            </button>
+          ))}
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body text-sm font-semibold px-5 py-3 rounded-full text-center"
+            style={{ background: cora.gradient, color: "#fff" }}
+          >
+            Get Cora Free
+          </a>
+        </div>
+      )}
+    </header>
+  );
+}

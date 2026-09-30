@@ -55,7 +55,7 @@ export default function TestimonialsSection() {
             className="font-mono-jet text-xs mb-4 block"
             style={{ color: "#3ECFCF" }}
           >
-            05 — TESTIMONIALS
+            03 — TESTIMONIALS
           </span>
           <h2
             className="font-syne font-bold text-4xl md:text-5xl leading-tight"
