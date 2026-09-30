@@ -1,33 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Smartphone, EyeOff, Trash2, Mail } from "lucide-react";
-import NelaSubNav from "@/components/nela/NelaSubNav";
-import NelaFooter from "@/components/nela/NelaFooter";
-import { nela, CONTACT_EMAIL } from "@/components/nela/theme";
+import { CONTACT_EMAIL } from "@/components/nela/theme";
 
 // Fixed, not computed — the date only changes when the policy does.
 const LAST_UPDATED = "30 September 2026";
-
-const highlights = [
-  {
-    icon: Smartphone,
-    title: "Your logs stay on your phone",
-    description:
-      "Periods, symptoms, moods and notes are stored on your device. Nela has no account and no server of ours that holds them.",
-  },
-  {
-    icon: EyeOff,
-    title: "No ads, no selling",
-    description:
-      "We don't sell your data, show ads, or track you across other apps and websites.",
-  },
-  {
-    icon: Trash2,
-    title: "Delete it any time",
-    description:
-      "Settings → Delete everything erases your cycle data from the app straight away.",
-  },
-];
 
 const sections = [
   {
@@ -58,9 +34,9 @@ If you back up your iPhone with iCloud Backup or to a computer, Apple includes a
   },
   {
     title: "4. What leaves your device",
-    content: `A small amount of information is shared with two service providers that run Nela's subscriptions. Neither receives your daily logs, symptoms or notes.
+    content: `A small amount of information is shared with two service providers that run Nela's subscriptions. Neither receives any cycle or health information, including your daily logs, symptoms or notes.
 
-Superwall (paywalls): Superwall shows Nela's subscription screen. When that screen appears at the end of setup, Nela sends Superwall your first name, your main goal (tracking, trying to conceive or avoiding pregnancy), your cycle length, period length, current cycle day and phase, and whether you're eligible for a free trial. This is used to personalise the subscription screen. Superwall also receives technical information such as your device model, iOS version, language and region, app version, and how you interact with the subscription screen.
+Superwall (paywalls): Superwall shows Nela's subscription screen. It receives your first name and whether you're eligible for a free trial, along with technical information such as your device model, iOS version, language and region, app version, and how you interact with the subscription screen. Superwall does not receive any cycle, period, fertility or health information.
 
 RevenueCat (subscriptions): RevenueCat manages your subscription status. It receives an anonymous app user ID, your purchase and subscription history from the App Store, and technical information such as device model, iOS version, region and IP address. We don't send RevenueCat any of your cycle or health information.
 
@@ -85,7 +61,7 @@ We do not use your information for advertising, we do not build profiles of you 
     content: `Under UK and EU data protection law (the UK GDPR and the EU GDPR), we rely on:
 
 — Contract: to provide the app and your subscription.
-— Explicit consent: for the health information you choose to enter, and for the information shared with Superwall described in Section 4. You can withdraw consent at any time by deleting your data in the app and contacting us, as described in Section 9.
+— Explicit consent: for the health information you choose to enter. You can withdraw consent at any time by deleting your data in the app and contacting us, as described in Section 9.
 — Legitimate interests: to keep the app secure, fix problems and reply to support messages.`,
   },
   {
@@ -114,7 +90,7 @@ Data sent to our service providers is encrypted in transit. On your phone, Nela'
   },
   {
     title: "11. International transfers",
-    content: `Superwall and RevenueCat are based in the United States, so the information in Section 4 is processed there. Where this happens, we rely on appropriate safeguards recognised by UK and EU law, such as the UK–US data bridge or standard contractual clauses.`,
+    content: `Superwall and RevenueCat are based in the United States, so the subscription and technical information described in Section 4 is processed there. Where this happens, we rely on appropriate safeguards recognised by UK and EU law, such as the UK–US data bridge or standard contractual clauses. No cycle or health information is sent to them.`,
   },
   {
     title: "12. Requests from authorities",
@@ -142,175 +118,47 @@ export default function NelaPrivacy() {
   }, []);
 
   return (
-    <div style={{ background: nela.bg, minHeight: "100vh" }}>
-      <NelaSubNav />
+    <div style={{ background: "#FFFFFF", color: "#000000", minHeight: "100vh" }}>
+      <main
+        className="max-w-2xl mx-auto px-4 py-10"
+        style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: 14, lineHeight: 1.6 }}
+      >
+        <h1 style={{ fontSize: 20, fontWeight: "bold", marginBottom: 4 }}>
+          Nela Privacy Policy
+        </h1>
+        <p style={{ marginBottom: 24 }}>Last updated: {LAST_UPDATED}</p>
 
-      <header className="relative overflow-hidden px-6 pt-20 pb-16">
-        <div
-          className="absolute pointer-events-none cora-blob"
-          style={{
-            top: "-30%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: 720,
-            height: 520,
-            borderRadius: "50%",
-            background: `radial-gradient(circle, ${nela.glow}99 0%, transparent 68%)`,
-            filter: "blur(70px)",
-          }}
-        />
-        <div className="relative max-w-3xl mx-auto text-center">
-          <span
-            className="font-body text-[11px] font-semibold cora-label mb-4 block"
-            style={{ color: nela.muted }}
-          >
-            Privacy Policy
-          </span>
-          <h1
-            className="font-display mb-5"
-            style={{
-              fontSize: "clamp(2.4rem, 7vw, 4rem)",
-              color: nela.ink,
-              fontWeight: 500,
-              lineHeight: 1.05,
-            }}
-          >
-            Your cycle,{" "}
-            <em style={{ color: nela.accent, fontStyle: "italic" }}>
-              kept private
-            </em>
-          </h1>
-          <p
-            className="font-body text-base sm:text-lg leading-relaxed max-w-xl mx-auto"
-            style={{ color: nela.muted }}
-          >
-            What Nela stores, what leaves your phone, and how to delete it — in
-            plain language.
-          </p>
-          <p className="font-body text-sm mt-5" style={{ color: nela.muted }}>
-            Last updated: {LAST_UPDATED}
-          </p>
-        </div>
-      </header>
-
-      {/* The short version */}
-      <section className="px-6 pb-16">
-        <div className="max-w-3xl mx-auto grid sm:grid-cols-3 gap-4">
-          {highlights.map(({ icon: Icon, title, description }) => (
-            <div
-              key={title}
-              className="rounded-[26px] p-7"
-              style={{
-                background: nela.card,
-                border: `1px solid ${nela.ink}0F`,
-                boxShadow: `0 2px 10px ${nela.ink}0A`,
-              }}
-            >
-              <div
-                className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
-                style={{ background: nela.cardTint }}
-              >
-                <Icon size={19} style={{ color: nela.accent }} />
-              </div>
-              <h2
-                className="font-display text-lg mb-2"
-                style={{ color: nela.ink, fontWeight: 600 }}
-              >
-                {title}
-              </h2>
-              <p
-                className="font-body text-sm leading-relaxed"
-                style={{ color: nela.muted }}
-              >
-                {description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Full policy */}
-      <section className="px-6 pb-20">
-        <div
-          className="max-w-3xl mx-auto rounded-[32px] px-7 sm:px-12 py-12 flex flex-col gap-12"
-          style={{
-            background: nela.card,
-            border: `1px solid ${nela.ink}0F`,
-            boxShadow: `0 20px 60px ${nela.ink}0F`,
-          }}
-        >
-          {sections.map((section) => (
-            <div key={section.title}>
-              <h2
-                className="font-display text-xl sm:text-2xl mb-4"
-                style={{ color: nela.ink, fontWeight: 600 }}
-              >
-                {section.title}
-              </h2>
-              <div
-                className="font-body text-[15px] leading-[1.75]"
-                style={{ color: nela.muted }}
-              >
-                {section.content.split("\n\n").map((para, i) => (
-                  <p key={i} className="mb-4 last:mb-0">
-                    {para}
-                  </p>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section className="px-6 pb-24">
-        <div
-          className="max-w-3xl mx-auto rounded-[26px] p-7 flex gap-4 items-start"
-          style={{
-            background: nela.cardTint,
-            border: `1px solid ${nela.accent}2E`,
-          }}
-        >
-          <div
-            className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"
-            style={{ background: nela.card }}
-          >
-            <Mail size={19} style={{ color: nela.accent }} />
-          </div>
-          <div>
-            <h2
-              className="font-display text-lg mb-2"
-              style={{ color: nela.ink, fontWeight: 600 }}
-            >
-              Privacy questions?
+        {sections.map((section) => (
+          <div key={section.title} style={{ marginBottom: 20 }}>
+            <h2 style={{ fontSize: 14, fontWeight: "bold", marginBottom: 6 }}>
+              {section.title}
             </h2>
-            <p
-              className="font-body text-sm leading-relaxed mb-3"
-              style={{ color: nela.muted }}
-            >
-              To ask about this policy or exercise any of your rights, email
-              Delexity Ltd and a real person will reply. You can also visit{" "}
-              <Link
-                to="/nela-support"
-                className="underline underline-offset-2"
-                style={{ color: nela.accent }}
-              >
-                Nela Support
-              </Link>
-              .
-            </p>
-            <a
-              href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Nela privacy")}`}
-              className="font-body text-sm font-medium"
-              style={{ color: nela.accent }}
-            >
-              {CONTACT_EMAIL} →
-            </a>
+            {section.content.split("\n\n").map((para, i) => (
+              <p key={i} style={{ marginBottom: 8 }}>
+                {para}
+              </p>
+            ))}
           </div>
-        </div>
-      </section>
+        ))}
 
-      <NelaFooter />
+        <div style={{ marginBottom: 20 }}>
+          <h2 style={{ fontSize: 14, fontWeight: "bold", marginBottom: 6 }}>
+            16. Contact
+          </h2>
+          <p style={{ marginBottom: 8 }}>
+            Questions about this policy, or requests to exercise your rights,
+            can be sent to Delexity Ltd at{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`} style={{ textDecoration: "underline" }}>
+              {CONTACT_EMAIL}
+            </a>
+            . See also{" "}
+            <Link to="/nela-support" style={{ textDecoration: "underline" }}>
+              Nela Support
+            </Link>
+            .
+          </p>
+        </div>
+      </main>
     </div>
   );
 }
